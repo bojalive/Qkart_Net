@@ -1,11 +1,9 @@
-﻿global using System.ComponentModel.DataAnnotations;
-
-namespace Qkart_WebAPI.Models.dto
+﻿namespace Qkart_WebAPI.Models.dto
 {
-    public class ProductsDTO
+    public class ProductUpdateDTO
     {
+
         public Guid Id { get; set; }
-        [Required]
         [MaxLength(30)]
         public string? Name { get; set; }
         public string? Catagory { get; set; }
