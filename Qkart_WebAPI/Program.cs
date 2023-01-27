@@ -13,6 +13,8 @@ builder.Services.AddDbContext<QkartDbContext>(option =>
 //builder.Services.AddAutoMapper(typeof(MappingConfig));
 builder.Services.AddAutoMapper(typeof(MappingConfig));
 builder.Services.AddScoped<IRepository<Product>, Repository<Product>>();
+builder.Services.AddScoped<IRepository<Seller>, Repository<Seller>>();
+builder.Services.AddScoped<IRepository<LinkProductSeller>, Repository<LinkProductSeller>>();
 builder.Services.AddControllers().AddNewtonsoftJson();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

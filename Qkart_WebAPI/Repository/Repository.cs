@@ -51,6 +51,13 @@ namespace Qkart_WebAPI.Repository
             await this.Save();
         }
 
+        public async Task UpdateAsync(T entity)
+        {
+
+            _dbSet.Update(entity);
+            await this.Save();
+        }
+
         public async Task Save()
         {
             await _db.SaveChangesAsync();

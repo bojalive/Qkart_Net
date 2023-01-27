@@ -1,5 +1,6 @@
 ﻿global using AutoMapper;
 global using Qkart_WebAPI.Models.dto;
+using Qkart_WebAPI.Models.SellerDTO;
 
 namespace Qkart_WebAPI.Mapping
 {
@@ -11,6 +12,8 @@ namespace Qkart_WebAPI.Mapping
 
             CreateMap<Product, ProductCreateDTO>().ReverseMap();
             CreateMap<Product, ProductUpdateDTO>().ReverseMap();
+            CreateMap<Seller, SellerCreateDTO>().ReverseMap();
+            CreateMap<Seller, SellerDTO>().ReverseMap();
         }
     }
 }

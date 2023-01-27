@@ -13,17 +13,24 @@ namespace Qkart_WebAPI.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly QkartDbContext _dbContext;
+
         private readonly IMapper _mapper;
         private readonly IRepository<Product> _DbProduct;
+        private readonly IRepository<Seller> _dbSeller;
+        private readonly IRepository<LinkProductSeller> _dbProductSeller;
+
+
         public ApiResponse _response { get; set; }
 
-        public ProductsController(QkartDbContext dbContext, IMapper mapper, IRepository<Product> db)
+        public ProductsController(IMapper mapper, IRepository<Product> db, IRepository<Seller> dbSeller, IRepository<LinkProductSeller> dbProductSeller)
         {
-            this._dbContext = dbContext;
+
             this._mapper = mapper;
             this._DbProduct = db;
+            this._dbSeller = dbSeller;
+            this._dbProductSeller = dbProductSeller;
             this._response = new();
+
         }
 
         [HttpGet]
@@ -35,10 +42,23 @@ namespace Qkart_WebAPI.Controllers
             try
             {
                 IEnumerable<Product> productsList = await _DbProduct.GetAllAsync();
-
+                List<ProductDTO> productDTO = _mapper.Map<List<ProductDTO>>(productsList);
+                IEnumerable<Seller> sellerList = await _dbSeller.GetAllAsync();
                 if (productsList != null)
                 {
-                    _response.Result = productsList;
+
+                    foreach (ProductDTO product in productDTO)
+                    {
+
+                        var shit = await _dbProductSeller.GetAllAsync(i => i.ProductId == product.Id);
+                        foreach (var item in shit)
+                        {
+                            product.Sellers.AddRange(await _dbSeller.GetAllAsync(i => i.Id == item.SellerId));
+                        }
+
+                    }
+
+                    _response.Result = productDTO;
                     _response.StatusCode = HttpStatusCode.OK;
                     return Ok(_response);
                 }
@@ -121,7 +141,7 @@ namespace Qkart_WebAPI.Controllers
         {
             try
             {
-                Product product = await _dbContext.Products.FirstOrDefaultAsync(i => i.Id == id);
+                Product product = await _DbProduct.GetByIdAsync(i => i.Id == id);
                 if (product == null)
                 {
                     _response.isSuccess = false;
@@ -149,12 +169,12 @@ namespace Qkart_WebAPI.Controllers
             try
             {
                 if (dataFromBody == null || id != dataFromBody.Id) return BadRequest();
-                if (await _dbContext.Products.AsNoTracking().FirstAsync(i => i.Id == id) == null) return NotFound();
+                if (await _DbProduct.GetByIdAsync(i => i.Id == id, false) == null) return NotFound();
 
                 Product model = _mapper.Map<Product>(dataFromBody);
-                _dbContext.Products.Update(model);
-                await _dbContext.SaveChangesAsync();
-                return NoContent();
+                await _DbProduct.UpdateAsync(model);
+                _response.Result = model;
+                return Ok(_response);
             }
             catch (Exception ex)
             {
@@ -169,19 +189,27 @@ namespace Qkart_WebAPI.Controllers
         [ProducesResponseType(404)]
         public async Task<IActionResult> PatchProductsById(Guid id, [FromBody] JsonPatchDocument<ProductUpdateDTO> data)
         {
-            if (data == null) return BadRequest();
-            Product product = await _dbContext.Products.AsNoTracking().FirstAsync(i => i.Id == id);
-            if (product == null) return NotFound();
+            try
+            {
+                if (data == null) return BadRequest();
+                Product product = await _DbProduct.GetByIdAsync(i => i.Id == id, false);
+                if (product == null) return NotFound();
 
-            ProductUpdateDTO productUpdateDTO = _mapper.Map<ProductUpdateDTO>(product);
-            data.ApplyTo(productUpdateDTO, ModelState);
-            if (!ModelState.IsValid) return BadRequest();
+                ProductUpdateDTO productUpdateDTO = _mapper.Map<ProductUpdateDTO>(product);
+                data.ApplyTo(productUpdateDTO, ModelState);
+                if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            Product model = _mapper.Map<Product>(productUpdateDTO);
-            _dbContext.Update(model);
-            await _dbContext.SaveChangesAsync();
+                Product model = _mapper.Map<Product>(productUpdateDTO);
+                await _DbProduct.UpdateAsync(model);
 
-            return NoContent();
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(statusCode: StatusCodes.Status500InternalServerError, this.ExceptionReturnHelper(ex));
+            }
+
         }
 
 

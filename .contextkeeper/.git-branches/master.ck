@@ -6,7 +6,7 @@
       "WindowType": "MainWindow",
       "WindowState": "Maximized",
       "Window": {
-        "Left": 0,
+        "Left": -1920,
         "Top": 0,
         "Width": 1920,
         "Height": 1050
@@ -15,9 +15,9 @@
         {
           "Documents": [
             {
-              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Models\\ApiResponse.cs",
-              "RelativePath": "..\\..\\Qkart_WebAPI\\Models\\ApiResponse.cs",
-              "FullName": "ApiResponse.cs",
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Models\\ProductDTO\\ProductDTO.cs",
+              "RelativePath": "..\\..\\Qkart_WebAPI\\Models\\ProductDTO\\ProductDTO.cs",
+              "FullName": "ProductDTO.cs",
               "DockedHeight": {
                 "UnitType": "Stretch",
                 "Value": 200
@@ -26,8 +26,26 @@
                 "UnitType": "Stretch",
                 "Value": 200
               },
-              "Line": 8,
-              "Column": 78,
+              "Line": 17,
+              "Column": 72,
+              "IsPinned": false,
+              "IsActive": true,
+              "IsSelected": true
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Models\\ProductDTO\\ProductUpdateDTO.cs",
+              "RelativePath": "..\\..\\Qkart_WebAPI\\Models\\ProductDTO\\ProductUpdateDTO.cs",
+              "FullName": "ProductUpdateDTO.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 1,
+              "Column": 1,
               "IsPinned": false
             },
             {
@@ -42,14 +60,14 @@
                 "UnitType": "Stretch",
                 "Value": 200
               },
-              "Line": 15,
-              "Column": 69,
+              "Line": 17,
+              "Column": 88,
               "IsPinned": false
             },
             {
-              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Repository\\Repository.cs",
-              "RelativePath": "..\\..\\Qkart_WebAPI\\Repository\\Repository.cs",
-              "FullName": "Repository.cs",
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Models\\LinkProductSeller.cs",
+              "RelativePath": "..\\..\\Qkart_WebAPI\\Models\\LinkProductSeller.cs",
+              "FullName": "LinkProductSeller.cs",
               "DockedHeight": {
                 "UnitType": "Stretch",
                 "Value": 200
@@ -58,14 +76,14 @@
                 "UnitType": "Stretch",
                 "Value": 200
               },
-              "Line": 50,
-              "Column": 19,
+              "Line": 5,
+              "Column": 35,
               "IsPinned": false
             },
             {
-              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Repository\\IRepository.cs",
-              "RelativePath": "..\\..\\Qkart_WebAPI\\Repository\\IRepository.cs",
-              "FullName": "IRepository.cs",
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Controllers\\SellersController.cs",
+              "RelativePath": "..\\..\\Qkart_WebAPI\\Controllers\\SellersController.cs",
+              "FullName": "SellersController.cs",
               "DockedHeight": {
                 "UnitType": "Stretch",
                 "Value": 200
@@ -74,8 +92,8 @@
                 "UnitType": "Stretch",
                 "Value": 200
               },
-              "Line": 10,
-              "Column": 34,
+              "Line": 18,
+              "Column": 43,
               "IsPinned": false
             },
             {
@@ -90,10 +108,9 @@
                 "UnitType": "Stretch",
                 "Value": 200
               },
-              "Line": 129,
-              "Column": 99,
-              "IsPinned": false,
-              "IsSelected": true
+              "Line": 55,
+              "Column": 26,
+              "IsPinned": false
             }
           ],
           "DockedHeight": {

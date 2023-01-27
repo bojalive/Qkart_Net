@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Qkart_WebAPI.Data;
 
@@ -11,9 +12,11 @@ using Qkart_WebAPI.Data;
 namespace QkartWebAPI.Migrations
 {
     [DbContext(typeof(QkartDbContext))]
-    partial class QkartDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230126050800_selleradded")]
+    partial class selleradded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,29 +52,6 @@ namespace QkartWebAPI.Migrations
                     b.HasIndex("SellerId");
 
                     b.ToTable("LinkProductSellers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ProductId = new Guid("70c9af8e-da97-4c51-68d1-08dafeca85a2"),
-                            SellerId = 1,
-                            SellerPrice = 0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            ProductId = new Guid("70c9af8e-da97-4c51-68d1-08dafeca85a2"),
-                            SellerId = 2,
-                            SellerPrice = 0
-                        },
-                        new
-                        {
-                            Id = 3,
-                            ProductId = new Guid("b44859e1-c104-4450-bf9b-2008a6858187"),
-                            SellerId = 1,
-                            SellerPrice = 0
-                        });
                 });
 
             modelBuilder.Entity("Qkart_WebAPI.Models.Product", b =>
@@ -108,23 +88,23 @@ namespace QkartWebAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8b8ccb0f-7a9c-4bde-88f4-a2e13c699f5d"),
+                            Id = new Guid("ebed91bc-19d2-401f-843a-0491d21b8770"),
                             Catagory = "Mobile",
                             Cost = 12500,
-                            CreatedDate = new DateTime(2023, 1, 26, 13, 59, 38, 792, DateTimeKind.Local).AddTicks(2489),
+                            CreatedDate = new DateTime(2023, 1, 26, 10, 38, 0, 411, DateTimeKind.Local).AddTicks(6469),
                             Name = "Asus ZenPhone M2 Mobile Phone",
                             Rating = 4.0,
-                            UpdatedDate = new DateTime(2023, 1, 26, 13, 59, 38, 792, DateTimeKind.Local).AddTicks(2500)
+                            UpdatedDate = new DateTime(2023, 1, 26, 10, 38, 0, 411, DateTimeKind.Local).AddTicks(6478)
                         },
                         new
                         {
-                            Id = new Guid("6cb5a37c-c82d-49f3-b753-f2fe1bce4853"),
+                            Id = new Guid("c25ef392-45c5-4cae-865f-16ce8f9795b7"),
                             Catagory = "Mobile",
                             Cost = 8500,
-                            CreatedDate = new DateTime(2023, 1, 26, 13, 59, 38, 792, DateTimeKind.Local).AddTicks(2503),
+                            CreatedDate = new DateTime(2023, 1, 26, 10, 38, 0, 411, DateTimeKind.Local).AddTicks(6480),
                             Name = "MI Some Mobile",
                             Rating = 4.0999999999999996,
-                            UpdatedDate = new DateTime(2023, 1, 26, 13, 59, 38, 792, DateTimeKind.Local).AddTicks(2503)
+                            UpdatedDate = new DateTime(2023, 1, 26, 10, 38, 0, 411, DateTimeKind.Local).AddTicks(6480)
                         });
                 });
 
@@ -156,26 +136,6 @@ namespace QkartWebAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sellers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            City = "Coimbatore",
-                            CreatedDate = new DateTime(2023, 1, 26, 8, 29, 38, 792, DateTimeKind.Utc).AddTicks(2587),
-                            FullAddress = "Coimbatore",
-                            SellerName = "InsakHomes",
-                            SpecialDetails = ""
-                        },
-                        new
-                        {
-                            Id = 2,
-                            City = "Coimbatore",
-                            CreatedDate = new DateTime(2023, 1, 26, 8, 29, 38, 792, DateTimeKind.Utc).AddTicks(2590),
-                            FullAddress = "Coimbatore",
-                            SellerName = "DreamCorp",
-                            SpecialDetails = ""
-                        });
                 });
 
             modelBuilder.Entity("Qkart_WebAPI.Models.LinkProductSeller", b =>
