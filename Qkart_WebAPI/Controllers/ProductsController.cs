@@ -1,6 +1,7 @@
 ﻿
 global using Qkart_WebAPI.Models;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Qkart_WebAPI.Data;
@@ -9,7 +10,7 @@ using System.Net;
 
 namespace Qkart_WebAPI.Controllers
 {
-    [Route("v1/products")]
+    [Route("api/v1/products")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -37,6 +38,7 @@ namespace Qkart_WebAPI.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
+        [Authorize]
         public async Task<ActionResult<ApiResponse>> GetAllProducts()
         {
             try
@@ -81,6 +83,7 @@ namespace Qkart_WebAPI.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
+        [Authorize(Roles = "admin")]
         public async Task<ActionResult<ApiResponse>> GetProductsById(Guid id)
         {
             try
@@ -111,6 +114,7 @@ namespace Qkart_WebAPI.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
+        [Authorize]
         public async Task<ActionResult<ApiResponse>> AddNewProduct([FromBody] ProductCreateDTO data)
         {
             try
@@ -153,6 +157,7 @@ namespace Qkart_WebAPI.Controllers
         [HttpDelete("{id:Guid}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> DeleteProductById(Guid id)
         {
             try
@@ -180,6 +185,7 @@ namespace Qkart_WebAPI.Controllers
         [HttpPut("{id:Guid}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
+        [Authorize]
         public async Task<IActionResult> PutProductsById(Guid id, [FromBody] ProductOnlyDTO dataFromBody)
         {
             try
@@ -203,6 +209,7 @@ namespace Qkart_WebAPI.Controllers
         [HttpPatch("{id:Guid}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
+        [Authorize]
         public async Task<IActionResult> PatchProductsById(Guid id, [FromBody] JsonPatchDocument<ProductOnlyDTO> data)
         {
             try

@@ -8,7 +8,7 @@ using System.Net;
 
 namespace Qkart_WebAPI.Controllers
 {
-    [Route("v1/sellers")]
+    [Route("api/v1/sellers")]
     [ApiController]
     public class SellersController : ControllerBase
     {
