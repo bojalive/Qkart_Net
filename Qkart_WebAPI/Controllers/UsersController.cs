@@ -4,15 +4,16 @@ using System.Net;
 
 namespace Qkart_WebAPI.Controllers
 {
-    [Route("api/UsersAuth")]
+    [Route("api/v{version:apiVersion}/UsersAuth")]
     [ApiController]
+    [ApiVersionNeutral]
     public class UsersController : ControllerBase
     {
         private readonly IUserRespository<LocalUser> _userResp;
         private ApiResponse _response;
         public UsersController(IUserRespository<LocalUser> userRespository)
         {
-            this._userResp = userRespository;
+            _userResp = userRespository;
             _response = new();
         }
 

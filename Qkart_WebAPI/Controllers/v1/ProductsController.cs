@@ -8,10 +8,11 @@ using Qkart_WebAPI.Data;
 using Qkart_WebAPI.Models.dto;
 using System.Net;
 
-namespace Qkart_WebAPI.Controllers
+namespace Qkart_WebAPI.Controllers.v1
 {
-    [Route("api/v1/products")]
+    [Route("api/v{version:apiVersion}/products")]
     [ApiController]
+    [ApiVersion("1.0")]
     public class ProductsController : ControllerBase
     {
 
@@ -26,11 +27,11 @@ namespace Qkart_WebAPI.Controllers
         public ProductsController(IMapper mapper, IRepository<Product> db, IRepository<Seller> dbSeller, IRepository<LinkProductSeller> dbProductSeller)
         {
 
-            this._mapper = mapper;
-            this._dbProduct = db;
-            this._dbSeller = dbSeller;
-            this._dbProductSeller = dbProductSeller;
-            this._response = new();
+            _mapper = mapper;
+            _dbProduct = db;
+            _dbSeller = dbSeller;
+            _dbProductSeller = dbProductSeller;
+            _response = new();
 
         }
 
@@ -38,7 +39,9 @@ namespace Qkart_WebAPI.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        [Authorize]
+        //[Authorize]
+        // [ApiVersion("1.0", Deprecated = true)]
+        [ResponseCache(CacheProfileName = "Cache30")]
         public async Task<ActionResult<ApiResponse>> GetAllProducts()
         {
             try
@@ -73,7 +76,7 @@ namespace Qkart_WebAPI.Controllers
             }
             catch (Exception ex)
             {
-                return this.ExceptionReturnHelper(ex);
+                return ExceptionReturnHelper(ex);
 
             }
 
@@ -105,7 +108,7 @@ namespace Qkart_WebAPI.Controllers
             catch (Exception ex)
             {
 
-                return this.ExceptionReturnHelper(ex);
+                return ExceptionReturnHelper(ex);
             }
 
         }
@@ -149,7 +152,7 @@ namespace Qkart_WebAPI.Controllers
             catch (Exception ex)
             {
 
-                return this.ExceptionReturnHelper(ex);
+                return ExceptionReturnHelper(ex);
             }
 
         }
@@ -177,7 +180,7 @@ namespace Qkart_WebAPI.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(statusCode: StatusCodes.Status500InternalServerError, this.ExceptionReturnHelper(ex));
+                return StatusCode(statusCode: StatusCodes.Status500InternalServerError, ExceptionReturnHelper(ex));
             }
 
         }
@@ -201,7 +204,7 @@ namespace Qkart_WebAPI.Controllers
             catch (Exception ex)
             {
 
-                return StatusCode(statusCode: StatusCodes.Status500InternalServerError, this.ExceptionReturnHelper(ex));
+                return StatusCode(statusCode: StatusCodes.Status500InternalServerError, ExceptionReturnHelper(ex));
             }
 
         }
@@ -230,7 +233,7 @@ namespace Qkart_WebAPI.Controllers
             catch (Exception ex)
             {
 
-                return StatusCode(statusCode: StatusCodes.Status500InternalServerError, this.ExceptionReturnHelper(ex));
+                return StatusCode(statusCode: StatusCodes.Status500InternalServerError, ExceptionReturnHelper(ex));
             }
 
         }
