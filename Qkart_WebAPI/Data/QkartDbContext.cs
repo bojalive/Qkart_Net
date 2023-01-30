@@ -12,6 +12,7 @@ namespace Qkart_WebAPI.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Seller> Sellers { get; set; }
         public DbSet<LinkProductSeller> LinkProductSellers { get; set; }
+        public DbSet<LocalUser> LocalUsers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().HasData(
@@ -40,7 +41,7 @@ namespace Qkart_WebAPI.Data
             modelBuilder.Entity<Seller>().HasData(
                  new Seller
                  {
-                     Id=1,
+                     Id = 1,
                      SellerName = "InsakHomes",
                      City = "Coimbatore",
                      FullAddress = "Coimbatore",
@@ -49,7 +50,7 @@ namespace Qkart_WebAPI.Data
                  },
                  new Seller
                  {
-                     Id=2,
+                     Id = 2,
                      SellerName = "DreamCorp",
                      City = "Coimbatore",
                      FullAddress = "Coimbatore",

@@ -1,6 +1,6 @@
 ﻿namespace Qkart_WebAPI.Models.dto
 {
-    public class ProductUpdateDTO
+    public class ProductOnlyDTO
     {
 
         public Guid Id { get; set; }

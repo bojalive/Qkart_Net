@@ -10,5 +10,6 @@
         public int Cost { get; set; }
         public double Rating { get; set; }
         public string? Image { get; set; }
+        public List<Seller> Sellers { get; set; } = new List<Seller>();
     }
 }

@@ -15,7 +15,7 @@ namespace Qkart_WebAPI.Controllers
     {
 
         private readonly IMapper _mapper;
-        private readonly IRepository<Product> _DbProduct;
+        private readonly IRepository<Product> _dbProduct;
         private readonly IRepository<Seller> _dbSeller;
         private readonly IRepository<LinkProductSeller> _dbProductSeller;
 
@@ -26,7 +26,7 @@ namespace Qkart_WebAPI.Controllers
         {
 
             this._mapper = mapper;
-            this._DbProduct = db;
+            this._dbProduct = db;
             this._dbSeller = dbSeller;
             this._dbProductSeller = dbProductSeller;
             this._response = new();
@@ -41,7 +41,7 @@ namespace Qkart_WebAPI.Controllers
         {
             try
             {
-                IEnumerable<Product> productsList = await _DbProduct.GetAllAsync();
+                IEnumerable<Product> productsList = await _dbProduct.GetAllAsync();
                 List<ProductDTO> productDTO = _mapper.Map<List<ProductDTO>>(productsList);
                 IEnumerable<Seller> sellerList = await _dbSeller.GetAllAsync();
                 if (productsList != null)
@@ -50,8 +50,8 @@ namespace Qkart_WebAPI.Controllers
                     foreach (ProductDTO product in productDTO)
                     {
 
-                        var shit = await _dbProductSeller.GetAllAsync(i => i.ProductId == product.Id);
-                        foreach (var item in shit)
+                        var linkData = await _dbProductSeller.GetAllAsync(i => i.ProductId == product.Id);
+                        foreach (var item in linkData)
                         {
                             product.Sellers.AddRange(await _dbSeller.GetAllAsync(i => i.Id == item.SellerId));
                         }
@@ -85,16 +85,18 @@ namespace Qkart_WebAPI.Controllers
         {
             try
             {
-                Product product = await _DbProduct.GetByIdAsync(i => i.Id == id);
+                Product product = await _dbProduct.GetByIdAsync(i => i.Id == id);
+                if (product == null) throw new Exception($"There was not product with the id - {id}");
 
-                if (product == null)
+                ProductDTO dto = _mapper.Map<ProductDTO>(product);
+
+                var linkData = await _dbProductSeller.GetAllAsync(i => i.ProductId == dto.Id);
+                foreach (var item in linkData)
                 {
-                    throw new Exception($"There was not product with the id - {id}");
-                    _response.isSuccess = false;
-                    _response.StatusCode = HttpStatusCode.NotFound;
-                    return NotFound(_response);
+                    dto.Sellers.AddRange(await _dbSeller.GetAllAsync(i => i.Id == item.SellerId));
                 }
-                _response.Result = _mapper.Map<ProductDTO>(product);
+
+                _response.Result = dto;
                 return Ok(_response);
             }
             catch (Exception ex)
@@ -114,17 +116,31 @@ namespace Qkart_WebAPI.Controllers
             try
             {
                 if (data == null) return BadRequest();
-                if (await _DbProduct.GetByIdAsync(i => i.Name.ToLower() == data.Name.ToLower()) != null)
+                if (await _dbProduct.GetByIdAsync(i => i.Name.ToLower() == data.Name.ToLower()) != null)
                 {
                     ModelState.AddModelError("", "The Name was Duplicate");
                     return BadRequest(ModelState);
                 }
                 Product model = _mapper.Map<Product>(data);
+
                 model.Id = Guid.NewGuid();
                 model.CreatedDate = DateTime.Now;
                 model.UpdatedDate = DateTime.Now;
-                await _DbProduct.CreateAsync(_mapper.Map<Product>(model));
-                return CreatedAtRoute("GetProductById", new { id = model.Id }, model);
+                await _dbProduct.CreateAsync(_mapper.Map<Product>(model));
+                List<Seller> sellerModels = data.Sellers;
+                if (sellerModels.Count > 0)
+                {
+                    foreach (var item in sellerModels)
+                    {
+                        await _dbSeller.CreateAsync(item);
+                        LinkProductSeller link = new();
+                        link.SellerId = item.Id;
+                        link.ProductId = model.Id;
+                        await _dbProductSeller.CreateAsync(link);
+
+                    }
+                }
+                return CreatedAtRoute("GetProductById", new { id = model.Id }, data);
             }
             catch (Exception ex)
             {
@@ -141,7 +157,7 @@ namespace Qkart_WebAPI.Controllers
         {
             try
             {
-                Product product = await _DbProduct.GetByIdAsync(i => i.Id == id);
+                Product product = await _dbProduct.GetByIdAsync(i => i.Id == id);
                 if (product == null)
                 {
                     _response.isSuccess = false;
@@ -150,7 +166,7 @@ namespace Qkart_WebAPI.Controllers
 
                 };
 
-                await _DbProduct.RemoveAsync(product);
+                await _dbProduct.RemoveAsync(product);
                 _response.StatusCode = HttpStatusCode.NoContent;
                 return StatusCode(statusCode: StatusCodes.Status204NoContent, _response);
             }
@@ -164,15 +180,15 @@ namespace Qkart_WebAPI.Controllers
         [HttpPut("{id:Guid}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> PutProductsById(Guid id, [FromBody] ProductUpdateDTO dataFromBody)
+        public async Task<IActionResult> PutProductsById(Guid id, [FromBody] ProductOnlyDTO dataFromBody)
         {
             try
             {
                 if (dataFromBody == null || id != dataFromBody.Id) return BadRequest();
-                if (await _DbProduct.GetByIdAsync(i => i.Id == id, false) == null) return NotFound();
+                if (await _dbProduct.GetByIdAsync(i => i.Id == id, false) == null) return NotFound();
 
                 Product model = _mapper.Map<Product>(dataFromBody);
-                await _DbProduct.UpdateAsync(model);
+                await _dbProduct.UpdateAsync(model);
                 _response.Result = model;
                 return Ok(_response);
             }
@@ -187,20 +203,20 @@ namespace Qkart_WebAPI.Controllers
         [HttpPatch("{id:Guid}")]
         [ProducesResponseType(204)]
         [ProducesResponseType(404)]
-        public async Task<IActionResult> PatchProductsById(Guid id, [FromBody] JsonPatchDocument<ProductUpdateDTO> data)
+        public async Task<IActionResult> PatchProductsById(Guid id, [FromBody] JsonPatchDocument<ProductOnlyDTO> data)
         {
             try
             {
                 if (data == null) return BadRequest();
-                Product product = await _DbProduct.GetByIdAsync(i => i.Id == id, false);
+                Product product = await _dbProduct.GetByIdAsync(i => i.Id == id, false);
                 if (product == null) return NotFound();
 
-                ProductUpdateDTO productUpdateDTO = _mapper.Map<ProductUpdateDTO>(product);
+                ProductOnlyDTO productUpdateDTO = _mapper.Map<ProductOnlyDTO>(product);
                 data.ApplyTo(productUpdateDTO, ModelState);
                 if (!ModelState.IsValid) return BadRequest(ModelState);
 
                 Product model = _mapper.Map<Product>(productUpdateDTO);
-                await _DbProduct.UpdateAsync(model);
+                await _dbProduct.UpdateAsync(model);
 
                 return NoContent();
             }
