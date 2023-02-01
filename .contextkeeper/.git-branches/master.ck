@@ -26,16 +26,16 @@
                 "UnitType": "Stretch",
                 "Value": 200
               },
-              "Line": 87,
-              "Column": 21,
+              "Line": 47,
+              "Column": 16,
               "IsPinned": false,
               "IsActive": true,
               "IsSelected": true
             },
             {
-              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Models\\Pagination.cs",
-              "RelativePath": "..\\..\\Qkart_WebAPI\\Models\\Pagination.cs",
-              "FullName": "Pagination.cs",
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Models\\UserDTO\\UserDTO.cs",
+              "RelativePath": "..\\..\\Qkart_WebAPI\\Models\\UserDTO\\UserDTO.cs",
+              "FullName": "UserDTO.cs",
               "DockedHeight": {
                 "UnitType": "Stretch",
                 "Value": 200
@@ -44,8 +44,72 @@
                 "UnitType": "Stretch",
                 "Value": 200
               },
-              "Line": 9,
+              "Line": 5,
+              "Column": 20,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Mapping\\MappingConfig.cs",
+              "RelativePath": "..\\..\\Qkart_WebAPI\\Mapping\\MappingConfig.cs",
+              "FullName": "MappingConfig.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 1,
               "Column": 1,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Repository\\UserRepoistory.cs",
+              "RelativePath": "..\\..\\Qkart_WebAPI\\Repository\\UserRepoistory.cs",
+              "FullName": "UserRepoistory.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 70,
+              "Column": 9,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Program.cs",
+              "RelativePath": "..\\..\\Qkart_WebAPI\\Program.cs",
+              "FullName": "Program.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 20,
+              "Column": 1,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Controllers\\UsersController.cs",
+              "RelativePath": "..\\..\\Qkart_WebAPI\\Controllers\\UsersController.cs",
+              "FullName": "UsersController.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 45,
+              "Column": 13,
               "IsPinned": false
             }
           ],

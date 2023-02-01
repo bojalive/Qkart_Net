@@ -5,7 +5,7 @@ namespace Qkart_WebAPI.Repository
     public interface IUserRespository<T> where T : class
     {
         bool isUserUnique(string userName);
-        Task<LocalUser> UserRegistration(RegistrationRequestDTO userRequest);
+        Task<UserDTO> UserRegistration(RegistrationRequestDTO userRequest);
         Task<LoginResponseDTO> UserLogin(LoginRequestDTO userRequest);
     }
 }

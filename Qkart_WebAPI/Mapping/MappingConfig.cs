@@ -14,6 +14,7 @@ namespace Qkart_WebAPI.Mapping
             CreateMap<Product, ProductOnlyDTO>().ReverseMap();
             CreateMap<Seller, SellerCreateDTO>().ReverseMap();
             CreateMap<Seller, SellerDTO>().ReverseMap();
+            CreateMap<ApplicationUser, UserDTO>().ReverseMap();
         }
     }
 }

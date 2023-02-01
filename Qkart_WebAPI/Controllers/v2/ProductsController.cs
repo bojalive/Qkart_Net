@@ -41,7 +41,7 @@ namespace Qkart_WebAPI.Controllers.v2
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
-        //   [Authorize]
+        [Authorize]
         public async Task<ActionResult<ApiResponse>> GetAllProducts([FromQuery] int? cost, int pageSize = 0, int pageNumber = 1)
         {
             try

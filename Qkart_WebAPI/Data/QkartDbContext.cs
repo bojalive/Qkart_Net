@@ -1,8 +1,10 @@
 ﻿global using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Qkart_WebAPI.Models;
 
 namespace Qkart_WebAPI.Data
 {
-    public class QkartDbContext : DbContext
+    public class QkartDbContext : IdentityDbContext<ApplicationUser>
     {
         public QkartDbContext(DbContextOptions<QkartDbContext> options)
             : base(options)
@@ -10,11 +12,13 @@ namespace Qkart_WebAPI.Data
 
         }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Seller> Sellers { get; set; }
         public DbSet<LinkProductSeller> LinkProductSellers { get; set; }
         public DbSet<LocalUser> LocalUsers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Product>().HasData(
                  new Product
                  {

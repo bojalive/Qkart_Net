@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Qkart_WebAPI.Data;
 
@@ -11,9 +12,11 @@ using Qkart_WebAPI.Data;
 namespace QkartWebAPI.Migrations
 {
     [DbContext(typeof(QkartDbContext))]
-    partial class QkartDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230201045306_identityuser")]
+    partial class identityuser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -191,6 +194,9 @@ namespace QkartWebAPI.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
@@ -334,23 +340,23 @@ namespace QkartWebAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ff88adfd-e20b-463c-8868-9ccf90a6c49f"),
+                            Id = new Guid("9c70741f-a6cb-4189-9200-7a9264a6a0d7"),
                             Catagory = "Mobile",
                             Cost = 12500,
-                            CreatedDate = new DateTime(2023, 2, 1, 10, 25, 8, 989, DateTimeKind.Local).AddTicks(7950),
+                            CreatedDate = new DateTime(2023, 2, 1, 10, 23, 6, 304, DateTimeKind.Local).AddTicks(4750),
                             Name = "Asus ZenPhone M2 Mobile Phone",
                             Rating = 4.0,
-                            UpdatedDate = new DateTime(2023, 2, 1, 10, 25, 8, 989, DateTimeKind.Local).AddTicks(7964)
+                            UpdatedDate = new DateTime(2023, 2, 1, 10, 23, 6, 304, DateTimeKind.Local).AddTicks(4762)
                         },
                         new
                         {
-                            Id = new Guid("fd0601b1-0bb4-4184-a8c1-d5c91a066726"),
+                            Id = new Guid("b09f79a2-6411-460a-ad3c-659b75721d24"),
                             Catagory = "Mobile",
                             Cost = 8500,
-                            CreatedDate = new DateTime(2023, 2, 1, 10, 25, 8, 989, DateTimeKind.Local).AddTicks(7966),
+                            CreatedDate = new DateTime(2023, 2, 1, 10, 23, 6, 304, DateTimeKind.Local).AddTicks(4764),
                             Name = "MI Some Mobile",
                             Rating = 4.0999999999999996,
-                            UpdatedDate = new DateTime(2023, 2, 1, 10, 25, 8, 989, DateTimeKind.Local).AddTicks(7966)
+                            UpdatedDate = new DateTime(2023, 2, 1, 10, 23, 6, 304, DateTimeKind.Local).AddTicks(4764)
                         });
                 });
 
@@ -388,7 +394,7 @@ namespace QkartWebAPI.Migrations
                         {
                             Id = 1,
                             City = "Coimbatore",
-                            CreatedDate = new DateTime(2023, 2, 1, 4, 55, 8, 989, DateTimeKind.Utc).AddTicks(8072),
+                            CreatedDate = new DateTime(2023, 2, 1, 4, 53, 6, 304, DateTimeKind.Utc).AddTicks(4836),
                             FullAddress = "Coimbatore",
                             SellerName = "InsakHomes",
                             SpecialDetails = ""
@@ -397,7 +403,7 @@ namespace QkartWebAPI.Migrations
                         {
                             Id = 2,
                             City = "Coimbatore",
-                            CreatedDate = new DateTime(2023, 2, 1, 4, 55, 8, 989, DateTimeKind.Utc).AddTicks(8075),
+                            CreatedDate = new DateTime(2023, 2, 1, 4, 53, 6, 304, DateTimeKind.Utc).AddTicks(4839),
                             FullAddress = "Coimbatore",
                             SellerName = "DreamCorp",
                             SpecialDetails = ""

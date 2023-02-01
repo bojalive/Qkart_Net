@@ -41,8 +41,8 @@ namespace Qkart_WebAPI.Controllers
         {
             if (requestDTO == null) return NotFound(_response);
             if (!_userResp.isUserUnique(requestDTO.UserName)) return BadRequest("UserName already exists");
-            LocalUser user = await _userResp.UserRegistration(requestDTO);
-            if (user == null) return BadRequest("There was a problem in user Creation");
+            UserDTO user = await _userResp.UserRegistration(requestDTO);
+            if (user == null || user.UserName == null) return BadRequest("There was a problem in user Creation");
             _response.Result = user;
             return _response;
         }

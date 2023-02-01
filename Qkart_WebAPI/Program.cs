@@ -1,6 +1,8 @@
 global using Qkart_WebAPI.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Qkart_WebAPI.Data;
@@ -14,7 +16,7 @@ builder.Services.AddDbContext<QkartDbContext>(option =>
 {
     option.UseSqlServer(builder.Configuration.GetConnectionString("QKartSQLDb"));
 });
-//builder.Services.AddAutoMapper(typeof(MappingConfig));
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<QkartDbContext>();
 builder.Services.AddResponseCaching();
 builder.Services.AddAutoMapper(typeof(MappingConfig));
 builder.Services.AddScoped<IRepository<Product>, Repository<Product>>();
