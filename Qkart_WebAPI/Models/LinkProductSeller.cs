@@ -8,12 +8,12 @@ namespace Qkart_WebAPI.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [ForeignKey("Product")]
-        public Guid ProductId { get; set; }
+        public Guid? ProductId { get; set; }
         public Product? Product { get; set; }
         [ForeignKey("Seller")]
-        public int SellerId { get; set; }
+        public int? SellerId { get; set; }
         public Seller? Seller { get; set; }
-        public int SellerPrice { get; set; }
+        public int? SellerPrice { get; set; }
         public string? SpecialDetails { get; set; }
     }
 }

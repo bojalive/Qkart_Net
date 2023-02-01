@@ -114,15 +114,17 @@ builder.Services.AddControllers(o =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+/*if (app.Environment.IsDevelopment())
+{*/
+app.UseSwagger();
+app.UseSwaggerUI(o =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(o =>
-    {
-        o.SwaggerEndpoint("/swagger/v1/swagger.json", "QkartAPI_V1");
-        o.SwaggerEndpoint("/swagger/v2/swagger.json", "QkartAPI_V2");
-    });
-}
+    o.SwaggerEndpoint("/swagger/v1/swagger.json", "QkartAPI_V1");
+    o.SwaggerEndpoint("/swagger/v2/swagger.json", "QkartAPI_V2");
+    o.RoutePrefix = String.Empty;
+
+});
+
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

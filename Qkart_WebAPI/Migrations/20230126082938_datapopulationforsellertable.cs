@@ -44,11 +44,11 @@ namespace QkartWebAPI.Migrations
             migrationBuilder.InsertData(
                 table: "LinkProductSellers",
                 columns: new[] { "Id", "ProductId", "SellerId", "SellerPrice", "SpecialDetails" },
-                values: new object[,]
+               values: new object[,]
                 {
-                    { 1, new Guid("70c9af8e-da97-4c51-68d1-08dafeca85a2"), 1, 0, null },
-                    { 2, new Guid("70c9af8e-da97-4c51-68d1-08dafeca85a2"), 2, 0, null },
-                    { 3, new Guid("b44859e1-c104-4450-bf9b-2008a6858187"), 1, 0, null }
+                    { 1, new Guid("6cb5a37c-c82d-49f3-b753-f2fe1bce4853"), 1, 0, null },
+                    { 2, new Guid("6cb5a37c-c82d-49f3-b753-f2fe1bce4853"), 2, 0, null },
+                    { 3, new Guid("6cb5a37c-c82d-49f3-b753-f2fe1bce4853"), 1, 0, null }
                 });
         }
 

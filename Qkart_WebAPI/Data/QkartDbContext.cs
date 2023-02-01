@@ -66,14 +66,14 @@ namespace Qkart_WebAPI.Data
                new LinkProductSeller
                {
                    Id = 1,
-                   ProductId = new Guid("70C9AF8E-DA97-4C51-68D1-08DAFECA85A2"),
+                   ProductId = new Guid("ebed91bc-19d2-401f-843a-0491d21b8770"),
                    SellerId = 1
 
                },
                 new LinkProductSeller
                 {
                     Id = 2,
-                    ProductId = new Guid("70C9AF8E-DA97-4C51-68D1-08DAFECA85A2"),
+                    ProductId = new Guid("ebed91bc-19d2-401f-843a-0491d21b8770"),
                     SellerId = 2
 
                 },
@@ -81,7 +81,7 @@ namespace Qkart_WebAPI.Data
                  {
                      Id = 3,
 
-                     ProductId = new Guid("B44859E1-C104-4450-BF9B-2008A6858187"),
+                     ProductId = new Guid("c25ef392-45c5-4cae-865f-16ce8f9795b7"),
                      SellerId = 1
 
                  }
