@@ -1,6 +1,6 @@
 {
   "GitBranch": "master",
-  "ContextKeeper": "1.93",
+  "ContextKeeper": "1.95",
   "State": [
     {
       "WindowType": "MainWindow",
@@ -15,24 +15,6 @@
         {
           "Documents": [
             {
-              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Program.cs",
-              "RelativePath": "..\\..\\Qkart_WebAPI\\Program.cs",
-              "FullName": "Program.cs",
-              "DockedHeight": {
-                "UnitType": "Stretch",
-                "Value": 200
-              },
-              "DockedWidth": {
-                "UnitType": "Stretch",
-                "Value": 200
-              },
-              "Line": 1,
-              "Column": 1,
-              "IsPinned": false,
-              "IsActive": true,
-              "IsSelected": true
-            },
-            {
               "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Controllers\\v1\\ProductsController.cs",
               "RelativePath": "..\\..\\Qkart_WebAPI\\Controllers\\v1\\ProductsController.cs",
               "FullName": "ProductsController.cs",
@@ -44,14 +26,15 @@
                 "UnitType": "Stretch",
                 "Value": 200
               },
-              "Line": 13,
-              "Column": 55,
-              "IsPinned": false
+              "Line": 205,
+              "Column": 14,
+              "IsPinned": false,
+              "IsSelected": true
             },
             {
-              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Qkart_WebAPI.csproj",
-              "RelativePath": "..\\..\\Qkart_WebAPI\\Qkart_WebAPI.csproj",
-              "FullName": "Qkart_WebAPI.csproj",
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Repository\\Repository.cs",
+              "RelativePath": "..\\..\\Qkart_WebAPI\\Repository\\Repository.cs",
+              "FullName": "Repository.cs",
               "DockedHeight": {
                 "UnitType": "Stretch",
                 "Value": 200
@@ -60,6 +43,56 @@
                 "UnitType": "Stretch",
                 "Value": 200
               },
+              "Line": 1,
+              "Column": 1,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\appsettings.json",
+              "RelativePath": "..\\..\\Qkart_WebAPI\\appsettings.json",
+              "FullName": "appsettings.json",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 11,
+              "Column": 17,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Controllers\\v2\\ProductsController.cs",
+              "RelativePath": "..\\..\\Qkart_WebAPI\\Controllers\\v2\\ProductsController.cs",
+              "FullName": "ProductsController.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 1,
+              "Column": 1,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Program.cs",
+              "RelativePath": "..\\..\\Qkart_WebAPI\\Program.cs",
+              "FullName": "Program.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 18,
+              "Column": 78,
               "IsPinned": false
             }
           ],

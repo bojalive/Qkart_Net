@@ -2,12 +2,13 @@ global using Qkart_WebAPI.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Qkart_WebAPI.Data;
 using Qkart_WebAPI.Mapping;
 using System.Text;
+using Microsoft.Identity.Web;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -114,17 +115,17 @@ builder.Services.AddControllers(o =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-/*if (app.Environment.IsDevelopment())
-{*/
-app.UseSwagger();
-app.UseSwaggerUI(o =>
+if (app.Environment.IsDevelopment())
 {
-    o.SwaggerEndpoint("/swagger/v1/swagger.json", "QkartAPI_V1");
-    o.SwaggerEndpoint("/swagger/v2/swagger.json", "QkartAPI_V2");
-    o.RoutePrefix = String.Empty;
+    app.UseSwagger();
+    app.UseSwaggerUI(o =>
+    {
+        o.SwaggerEndpoint("/swagger/v1/swagger.json", "QkartAPI_V1");
+        o.SwaggerEndpoint("/swagger/v2/swagger.json", "QkartAPI_V2");
+        //o.RoutePrefix = String.Empty;
 
-});
-
+    });
+}
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
