@@ -36,7 +36,7 @@ namespace CameronTubeAPI.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
-        [Authorize]
+        [Authorize(Policy = "Auser")]
         public async Task<ActionResult<ApiResponse>> GetAllVideos()
         {
             IEnumerable<Video> videoList = await _dbVideo.GetAllAsync();
@@ -97,7 +97,7 @@ namespace CameronTubeAPI.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Manager")]
-        [Authorize]
+        [Authorize(Policy = "AManager")]
         public async Task<ActionResult<ApiResponse>> AddNewProduct([FromBody] VideoCreateDTO data)
         {
             try

@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.15.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="6.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.0" />
@@ -25,6 +26,7 @@
     <PackageReference Include="Microsoft.Identity.Web.MicrosoftGraph" Version="1.24.1" />
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="1.16.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.1" />
   </ItemGroup>
 
 </Project>

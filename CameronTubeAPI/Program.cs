@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
+using CameronTubeAPI.Auth;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,8 +25,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .EnableTokenAcquisitionToCallDownstreamApi()
             .AddMicrosoftGraph(builder.Configuration.GetSection("MicrosoftGraph"))
             .AddInMemoryTokenCaches();
-builder.Services.AddControllers();
 
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AManager", policy => policy.AddRequirements(new GroupRequirement("964fd566-ec71-49cb-a61c-641e346cc07f")));
+    // options.AddPolicy("user", policy => policy.RequireClaim("groups", "user"));
+    options.AddPolicy("Auser", policy => policy.AddRequirements(new GroupRequirement("34510532-0f18-4aa4-a7dc-7b8bf0b62b36")));
+
+});
+
+builder.Services.AddControllers();
+builder.Services.AddTransient<IAuthorizationHandler, GroupAuthHandler>();
 builder.Services.AddScoped<IRepository<Video>, Repository<Video>>();
 builder.Services.AddScoped<IRepository<Statistics>, Repository<Statistics>>();
 builder.Services.AddScoped<IRepository<LinkTable>, Repository<LinkTable>>();
