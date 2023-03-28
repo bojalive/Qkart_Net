@@ -18,6 +18,6 @@ namespace CameronTubeAPI.Models
         [NotMapped]
         public List<string>? Tags { get; set; }
 
-        public string Url { get; set; }
+        public string Name { get; set; }
     }
 }

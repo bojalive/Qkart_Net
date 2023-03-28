@@ -29,7 +29,7 @@ namespace CameronTubeAPI.Data
                     ChannelTitle = "Valves",
                     CategoryId = 1,
                     Tags = new List<string> { "d1", "d2" },
-                    Url = "www.slb.com"
+                    Name = "www.slb.com"
                 },
 
                 new Video
@@ -40,7 +40,7 @@ namespace CameronTubeAPI.Data
                     ChannelTitle = "SubSea",
                     CategoryId = 1,
                     Tags = new List<string> { "d3", "d4" },
-                    Url = "www.slb.com"
+                    Name = "www.slb.com"
                 }
 
                 );

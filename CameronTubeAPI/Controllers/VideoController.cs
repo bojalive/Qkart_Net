@@ -1,5 +1,6 @@
 ﻿using Azure;
 using CameronTubeAPI.DTO;
+using CameronTubeAPI.Helper;
 using CameronTubeAPI.Models;
 using CameronTubeAPI.Repository;
 using Microsoft.AspNetCore.Authorization;
@@ -22,13 +23,16 @@ namespace CameronTubeAPI.Controllers
         private readonly IRepository<Video> _dbVideo;
         private readonly IRepository<Statistics> _dbStatistics;
         private readonly IRepository<LinkTable> _dbLink;
+        private readonly BlobHelper _blobHelper;
+
         public ApiResponse _response { get; set; }
-        public VideoController(IMapper mapper, IRepository<Video> dbVideo, IRepository<Statistics> dbStatistics, IRepository<LinkTable> dbLink)
+        public VideoController(IMapper mapper, IRepository<Video> dbVideo, IRepository<Statistics> dbStatistics, IRepository<LinkTable> dbLink, BlobHelper blobHelper)
         {
             this._mapper = mapper;
             this._dbVideo = dbVideo;
             this._dbStatistics = dbStatistics;
             this._dbLink = dbLink;
+            this._blobHelper = blobHelper;
             _response = new();
         }
         [HttpGet]
@@ -36,11 +40,22 @@ namespace CameronTubeAPI.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(404)]
         [RequiredScope(RequiredScopesConfigurationKey = "AzureAd:Scopes")]
-        [Authorize(Policy = "Auser")]
+        [Authorize]
         public async Task<ActionResult<ApiResponse>> GetAllVideos()
         {
             IEnumerable<Video> videoList = await _dbVideo.GetAllAsync();
             List<VideoDTO> videoDTOs = _mapper.Map<List<VideoDTO>>(videoList);
+
+            //blob shit needs to be here I think
+            // need to itreate through the list and for each on need to get an SAS token and append to the List as Url
+
+            foreach (var v in videoDTOs)
+            {
+                var url = _blobHelper.GetSASTokenForBlobs(v.Name);
+                v.Url = url.Result;
+            }
+
+
             IEnumerable<Statistics> statistics = await _dbStatistics.GetAllAsync();
 
             if (videoList != null)

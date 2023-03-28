@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
 using CameronTubeAPI.Auth;
 using Microsoft.AspNetCore.Authorization;
+using CameronTubeAPI.Helper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +40,7 @@ builder.Services.AddTransient<IAuthorizationHandler, GroupAuthHandler>();
 builder.Services.AddScoped<IRepository<Video>, Repository<Video>>();
 builder.Services.AddScoped<IRepository<Statistics>, Repository<Statistics>>();
 builder.Services.AddScoped<IRepository<LinkTable>, Repository<LinkTable>>();
+builder.Services.AddScoped<BlobHelper, BlobHelper>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 

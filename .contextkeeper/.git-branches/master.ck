@@ -15,6 +15,102 @@
         {
           "Documents": [
             {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\Repository\\Repository.cs",
+              "RelativePath": "..\\..\\CameronTubeAPI\\Repository\\Repository.cs",
+              "FullName": "Repository.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 1,
+              "Column": 1,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\Properties\\launchSettings.json",
+              "RelativePath": "..\\..\\CameronTubeAPI\\Properties\\launchSettings.json",
+              "FullName": "launchSettings.json",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 1,
+              "Column": 1,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\Helper\\BlobHelper.cs",
+              "RelativePath": "..\\..\\CameronTubeAPI\\Helper\\BlobHelper.cs",
+              "FullName": "BlobHelper.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 42,
+              "Column": 76,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\DTO\\VideoCreateDTO.cs",
+              "RelativePath": "..\\..\\CameronTubeAPI\\DTO\\VideoCreateDTO.cs",
+              "FullName": "VideoCreateDTO.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 16,
+              "Column": 20,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\DTO\\VideoDTO.cs",
+              "RelativePath": "..\\..\\CameronTubeAPI\\DTO\\VideoDTO.cs",
+              "FullName": "VideoDTO.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 20,
+              "Column": 23,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\Models\\Video.cs",
+              "RelativePath": "..\\..\\CameronTubeAPI\\Models\\Video.cs",
+              "FullName": "Video.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 15,
+              "Column": 43,
+              "IsPinned": false
+            },
+            {
               "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CamTubeServerless\\Function1.cs",
               "RelativePath": "..\\..\\CamTubeServerless\\Function1.cs",
               "FullName": "Function1.cs",
@@ -31,32 +127,6 @@
               "IsPinned": false
             },
             {
-              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\Controllers\\BlobController.cs",
-              "RelativePath": "..\\..\\CameronTubeAPI\\Controllers\\BlobController.cs",
-              "FullName": "BlobController.cs",
-              "DockedHeight": {
-                "UnitType": "Stretch",
-                "Value": 200
-              },
-              "DockedWidth": {
-                "UnitType": "Stretch",
-                "Value": 200
-              },
-              "Line": 85,
-              "Column": 13,
-              "Breakpoints": [
-                {
-                  "IsEnabled": true,
-                  "Line": 85,
-                  "Condition": "",
-                  "ConditionType": "WhenTrue"
-                }
-              ],
-              "IsPinned": false,
-              "IsActive": true,
-              "IsSelected": true
-            },
-            {
               "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\CameronTubeAPI.csproj",
               "RelativePath": "..\\..\\CameronTubeAPI\\CameronTubeAPI.csproj",
               "FullName": "CameronTubeAPI.csproj",
@@ -68,6 +138,103 @@
                 "UnitType": "Stretch",
                 "Value": 200
               },
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\Controllers\\BlobController.cs",
+              "RelativePath": "..\\..\\CameronTubeAPI\\Controllers\\BlobController.cs",
+              "FullName": "BlobController.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 17,
+              "Column": 9,
+              "IsPinned": false,
+              "IsSelected": true
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\Program.cs",
+              "RelativePath": "..\\..\\CameronTubeAPI\\Program.cs",
+              "FullName": "Program.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 43,
+              "Column": 54,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\Controllers\\VideoController.cs",
+              "RelativePath": "..\\..\\CameronTubeAPI\\Controllers\\VideoController.cs",
+              "FullName": "VideoController.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 62,
+              "Column": 14,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\appsettings.json",
+              "RelativePath": "..\\..\\CameronTubeAPI\\appsettings.json",
+              "FullName": "appsettings.json",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 29,
+              "Column": 11,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\Models\\Statistics.cs",
+              "RelativePath": "..\\..\\CameronTubeAPI\\Models\\Statistics.cs",
+              "FullName": "Statistics.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 1,
+              "Column": 1,
+              "IsPinned": false
+            },
+            {
+              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\Models\\Snippet.cs",
+              "RelativePath": "..\\..\\CameronTubeAPI\\Models\\Snippet.cs",
+              "FullName": "Snippet.cs",
+              "DockedHeight": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "DockedWidth": {
+                "UnitType": "Stretch",
+                "Value": 200
+              },
+              "Line": 16,
+              "Column": 2,
               "IsPinned": false
             },
             {
@@ -84,38 +251,6 @@
               },
               "Line": 10,
               "Column": 13,
-              "IsPinned": false
-            },
-            {
-              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\Controllers\\VideoController.cs",
-              "RelativePath": "..\\..\\CameronTubeAPI\\Controllers\\VideoController.cs",
-              "FullName": "VideoController.cs",
-              "DockedHeight": {
-                "UnitType": "Stretch",
-                "Value": 200
-              },
-              "DockedWidth": {
-                "UnitType": "Stretch",
-                "Value": 200
-              },
-              "Line": 33,
-              "Column": 10,
-              "IsPinned": false
-            },
-            {
-              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\CameronTubeAPI\\Program.cs",
-              "RelativePath": "..\\..\\CameronTubeAPI\\Program.cs",
-              "FullName": "Program.cs",
-              "DockedHeight": {
-                "UnitType": "Stretch",
-                "Value": 200
-              },
-              "DockedWidth": {
-                "UnitType": "Stretch",
-                "Value": 200
-              },
-              "Line": 19,
-              "Column": 108,
               "IsPinned": false
             },
             {
@@ -148,22 +283,6 @@
               },
               "Line": 209,
               "Column": 13,
-              "IsPinned": false
-            },
-            {
-              "FilePath": "C:\\Temp\\workspace\\MTConnect\\Qkart\\Qkart_WebAPI\\Repository\\Repository.cs",
-              "RelativePath": "..\\..\\Qkart_WebAPI\\Repository\\Repository.cs",
-              "FullName": "Repository.cs",
-              "DockedHeight": {
-                "UnitType": "Stretch",
-                "Value": 200
-              },
-              "DockedWidth": {
-                "UnitType": "Stretch",
-                "Value": 200
-              },
-              "Line": 1,
-              "Column": 1,
               "IsPinned": false
             },
             {
